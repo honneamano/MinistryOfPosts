@@ -9,7 +9,6 @@
 			],
 			"file_exclude_patterns": [
 				"*.dev.js",
-				"*.toml",
 			]
 		}
 	]

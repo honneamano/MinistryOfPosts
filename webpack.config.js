@@ -32,6 +32,7 @@ module.exports = (env)=>{
 
     const generic_plugins = [
         new DefinePlugin({
+            SERVICE_IDENTIFIER: JSON.stringify("ministry-of-posts"),
             VERSION: JSON.stringify(VERSION),
             DEV: JSON.stringify(is_dev),
         })
@@ -59,8 +60,10 @@ module.exports = (env)=>{
         ],
         resolve: {
             alias: {
-                app: path.resolve(__dirname, "src"),
+                common: path.resolve(__dirname, "common"),
+                app:    path.resolve(__dirname, "src"),
             },
+            symlinks: true,
         },
         module: {
             rules: generic_rules, 

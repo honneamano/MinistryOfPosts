@@ -1,4 +1,5 @@
 node_modules/
+common/
 *.sublime-workspace
 *.toml
 *.dev.js
