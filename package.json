@@ -1,0 +1,25 @@
+{
+  "name": "ministry-of-posts",
+  "version": "1.0.0",
+  "description": "Honneamano Ministry of Posts, a microservice for the Honneamano project, another Fediverse server.",
+  "main": "honneamano.ministry-of-posts.dist.js",
+  "scripts": {
+    "start": "node honneamano.ministry-of-posts.dist.js",
+    "dev": "webpack",
+    "dist": "webpack --production",
+    "debug": "node honneamano.ministry-of-posts.dev.js"
+  },
+  "author": "NeoAtlantis",
+  "license": "GPL-2.0",
+  "devDependencies": {
+    "ifdef-loader": "^2.3.2",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "argparse": "^2.0.1",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21"
+  }
+}
