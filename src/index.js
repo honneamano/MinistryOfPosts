@@ -2,8 +2,8 @@ import * as fs from "fs/promises";
 import _ from "lodash";
 import toml from "toml";
 
-import initBureauOfTransmission from "common/BureauOfTransmission";
 import Server from "./server";
+import agentOfTransmission from "app/agent-of-transmission";
 
 
 (async function(){
@@ -12,12 +12,21 @@ import Server from "./server";
     const configFileParsed = toml.parse(configFile);
 
     const microserviceConfig = _.get(configFileParsed, SERVICE_IDENTIFIER);
-    const zeromqConfig = _.get(configFileParsed, "zeromq");
+    const bureauOfTransmissionConfig = 
+        _.get(configFileParsed, "bureau-of-transmission");
 
-    await initBureauOfTransmission(zeromqConfig);
+    await agentOfTransmission(bureauOfTransmissionConfig);
 
     const server = new Server({
         config: microserviceConfig,
     });
     server.listen();
+
+    setInterval(()=>{
+        agentOfTransmission().sendMessage(
+            "test",
+            SERVICE_IDENTIFIER,
+            {hello:'world'}
+        )
+    }, 1000);
 })();
