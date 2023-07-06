@@ -22,11 +22,5 @@ import agentOfTransmission from "app/agent-of-transmission";
     });
     server.listen();
 
-    setInterval(()=>{
-        agentOfTransmission().sendMessage(
-            "test",
-            SERVICE_IDENTIFIER,
-            {hello:'world'}
-        )
-    }, 1000);
+
 })();
